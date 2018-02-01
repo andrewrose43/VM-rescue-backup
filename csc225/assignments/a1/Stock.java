@@ -7,6 +7,8 @@ import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Stack;
 
+//Simple two-value class to be loaded into the stack for comparison based on "int value"
+//int span tracks the span of each price, as defined in the assignment
 class Price{
 	int span;
 	int value;
