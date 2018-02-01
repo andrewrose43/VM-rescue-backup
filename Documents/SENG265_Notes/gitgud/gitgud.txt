@@ -1,0 +1,85 @@
+Git has 3 states:
+
+working directory
+	the differences between your repo and your disk
+	does not include changes you have staged
+staging area
+	the changes that you add to be committed later
+
+repository
+
+git add newFile.txt //moves newFile.txt to staging
+
+recall: you have to add things every single time.
+
+git status 
+
+git rm example.txt
+
+git rm -f example.txt //"force"
+have to use the -f flag if you want to remove from staging area
+
+git commit -m "message" //commits a file to the repository!
+
+"Clean" means that the working directory and the repo are the same
+
+regular git rm will put something from the repo back in the staging area
+
+To revert code...
+
+git reset HEAD newFile.txt
+"Hey, Git! Go to the head and reset newFile to whatever the HEAD was." This moves from the staging area to the working directory
+
+If we don't put HEAD newFile.txt  in there, it just resets everything. HEAD newfile.txt zeroes in on just one item
+
+git checkout will change a file in the working directory to its same-named cousin in the repo 
+
+git branch
+
+you'll see the master branch. To create a new branch...
+
+to create a new branch...
+git checkout -b newFeature
+
+git checkout seems to do two entirely different things!
+
+git checkout master can then switch you back to the master branch
+
+to set up a github git thingy,
+make a github account and clone the url provided there
+git clone _____
+
+git push origin [branchname] can push to a particular branch
+
+git checkout [branchname] will switch current branch
+
+MERGE CONFLICTS
+
+<<<<< HEAD
+[what is on your machine]
+======
+[what is in the repo]
+
+git add newFeature.txt
+git commit -m "merge"
+
+If someone has pushed
+-pull changes
+-resolve merge conflicts
+
+To merge branches master and newFeature...
+
+while in the master branch, do this:
+
+git merge newFeature
+
+and then everything in newFeature has been plunked into the master branch. If there are no conflicts, it is that easy
+
+Merge conflicts...
+
+Open the file to see conflict. The conflicted file is now on your working directory.
+
+first comes merging-into branch's code
+next listed is merging-from branch's code
+
+Start using git now! Learn how to use it!

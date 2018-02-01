@@ -1,0 +1,18 @@
+There are THREE types of command line argument: positional arguments, named arguments, and flags.
+
+A POSITIONAL argument is a bare value, and its position in a list of arguments identifies it.
+
+A NAMED argument is a (key, value) pair, where the key identifies the value.
+
+A FLAG is a standalone key, whose presence or absence provides information to the application.
+
+In the following command...
+
+rename file1.txt file2.txt
+
+then the position of the arguments identifies the value.
+-The value in position 1 ("file1.txt") is the current name and the value in position 2 ("file2.txt") is the new name
+
+Keys are identified by - when they are single letters and -- when they are words.
+
+

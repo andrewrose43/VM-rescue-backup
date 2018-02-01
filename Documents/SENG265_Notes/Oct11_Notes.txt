@@ -1,0 +1,70 @@
+Hi Arianna! Sorry to hear you are sick. I will try to make these notes clearer than usual so that people other than myself stand a chance at understanding them. Let me know if there is anything else that I can do for you until you are better!
+
+Here we go...
+
+On the assignment you need to provide a file that you used yourself for testing!
+
+Information on the contents of that testing file should be contained within the readme file that is specified.
+
+Software Development Processes: Slide 14
+various info on every user is displayed to them by various methods...
+manipulates what you see in innumerable ways based upon how you interact with the system.
+
+Everything that has to do with the View should be bundled together...
+
+The View sees the user's information. The user interacts with the controller, which manipulates the model, which updates the view...
+
+Architectural quality attributes (slide 16)
+
+Cohesion refers to connections WITHIN a module. High cohesion is good. High cohesion is efficient.
+
+Low coupling minimizes dependencies between modules limited to some interface functions. Makes code more reusable. Makes changes localized (does not cause larger bugs across modules), eases maintenance of code.
+
+When you want to fix one small bug, you don't want the fix to cause problems in other modules that were dependent upon precisely the old configuration.
+
+
+Categories of Requirements
+
+Functional: what the software should do
+Are satisfied by assigning an appropriate sequence of responsibilities throughout the design
+
+Quality: speed, reliability, etc
+Are satisfied by the various structures designed into the architecture, and the behaviours and interactions of the elements that populate those structures
+
+Constraints: language, platform
+
+Ex. functional requirement: When the user presses the green button, the Options dialog appears.
+
+Such a requirement might come bundled with associated quality requirements: ex. how fast does that happen?
+
+Quality attributes come into 2 types:
+1. those that apply to end user
+2. those that apply to the programming and maintenance processes
+
+But some quality attributes are difficult to test. Like long-term testing - what if your product needs to be able to run for a year without problems, but you don't have a year of testing time?
+
+Another tough one is mapping of concern to quality factor
+
+
+Slide 18 is self-explanatory; take a look
+
+Storyboarding is best explained by the visual explanation on slide 20
+
+It's the process of using windows drawn on pieces of paper to navigate through a program with the help of a 'user' volunteer
+
+GrV2SZuRPv0&feature=fvw
+is the URL extension of a helpful youtube video illustrating this
+
+
+Startups tend not to have much of a process to how they develop their products. In nature, though, they tend to adopt more documentation and procedure because painful failures force them into it. They learn the error of their ways; this was the subject of Damian's research.
+
+Moral: you need to do this. Everyone does it because it makes your products better and helps you make and maintain them faster.
+
+Scrum Methodology - a way of arranging a team into an effective workflow
+
+-product owner creates a prioritized wish list called a product backlog
+-during sprint planning, the team pulls a small chunk from the top of that backlog, and decides how to implement those pieces
+-team has a 'sprint' - perhaps 2-4 wks - to complete the item that has been pulled from the top of the backlog, but it meets each day to assess its progress (the daily Scrum meeting)
+	-they discuss what they did since last meeting, what difficulties they are dealing with, and what they are going to do before the next meeting.
+-at the end of the sprint, the product has the desired new functionality!
+

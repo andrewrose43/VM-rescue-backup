@@ -1,0 +1,48 @@
+Dynamic Memory II
+
+Slide 22
+
+Suppose we want to be able to GROW this array of structs as new items are added.
+
+Slide 24
+
+an Nvtab struct contains a Nameval. It's like a petpet.
+
+recall that malloc returns the address where the allocation begins
+
+at the end of addname, nval grows. That's how the index in the array is taken care of. Crazy cool stuff.
+
+REVIEW SLIDE 26 ON DELNAME.
+
+memmove moves the targeted information one block of memory over...
+
+Allocating memory for strings
+
+there is a crazy useful copy algorithm on slide 27.
+
+LISTS review
+
+(LINKED lists)
+
+linked lists are far easier than arrays to rearrange
+
+there are singly, doubly, and circular linked lists
+
+in the above example, you'd have to include a Nameval *next in the Nameval struct definition
+
+emalloc == exit malloc. If allocation fails, it reports an error and exits the program
+
+when a new item in the list is created (via the newitem method), its next value should be assigned null
+
+OK NOW WE ARE DOING KAHOOT
+
+REVIEW THIS QUESTION!
+Given "char commands[50]; char *cp;", which expressions have the same calue type on both sides?
+
+These:
+cp = &commands[25];
+*((&commands[10]+1) = 'a';
+
+Not this:
+*cp = commands + 10;
+

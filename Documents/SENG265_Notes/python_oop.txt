@@ -1,0 +1,17 @@
+class ObjectName(BaseClass):
+
+The self variable represents the object itself. It is used to access the various attributes and methods withing the class. Like 'this' in Java. However, in Python, 'self' is a stricter necessity than 'this' in Java.
+
+__init__(self, args) is the method called when an object is instantiated
+
+see HelloWorld.py
+
+notes on classes based on caesar.py...
+
+how to import a .py
+from caesar import *
+then to instantiate an object
+ts = textshifter(2)
+then to run something
+ts.encrypt('ABCD')
+

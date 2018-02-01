@@ -1,0 +1,115 @@
+To ensure you have pushed properly, move to a new directory and clone the remoteinto it. The thing you just pushed should be there.
+
+There will be a penalty for spaghetti code.
+
+In reality, rarely do you start a project from scratch. You need to be able to comprehend others' code! To help others with this, make your code readable...
+
+Don't rush despite your lateness. Read through entire spec again
+
+int compare_ints(const void *a, const void *b){
+	int val_a = *(int *)a;
+	int value_b = *(int *)b;
+	//note how this casts the addresses to consts as addresses to ints
+	if (value_a < value_b){
+		return -1;
+	} else if (value_a > value_b) {
+		return 1;
+	} else {
+	return 0;
+	}
+}
+
+qsort expects a function pointer as its last argument
+
+Recall the memory model.
+
+unmapped
+stack
+heap
+bss
+data
+text - machine code (executable) + string table; read-only
+
+Motivation for dynamic memory...
+
+what if you did not know the size of an input file, unlike Asst 1 where the size is bounded?
+
+memory addresses in the heap are sometimes called anonymous cariables.
+	these do not have names like standard variables
+
+sizeof() returns the block size required by malloc
+You must ALWAYS check the value returned by malloc!
+
+int *a = malloc (sizeof(int));
+if (a == NULL) {/*error*/}
+a is now the address of some int in dynamic memory
+
+Creating an array of 5 elements statically
+int array[10];
+
+Dynamically
+int *ptr = (int*) malloc(5*sizeof(int));
+if (ptr == NULL){
+
+}
+else{
+
+}
+
+When you create a malloc pocket, you have array-like access to its contents
+
+int main(){
+	int *p = (int *)malloc(20*sizeof(int));
+	p[2] = 5;
+	//twp ways to refer to the memory...
+	printf("%d\n", *)p+2));
+	printf(.........p[2]);
+(see slide 14)
+
+realloc resizes the block of memory
+
+void fre (void * ); returns the heap memory to the heap pool when no longer needed
+
+void polite_func(int n){
+	int *array = (int*) malloc (sizeof(int)*n)
+	[see slides]
+
+
+You need arrays that grow sometimes. Static arrays do not do this.
+
+So...
+
+Slide 19
+
+size_t is synonymous with an unsigned int. it is a data type native to c
+
+a->size
+^the above phrase is the syntax for referring to a single attribute of a struct
+
+typedef struct{
+	int *array;
+	size_t used;
+	size_t size;
+} Int_Struct;
+
+void initArray(Int_Struct *a, size_t initialSize){
+	a -> array = (int *)malloc (initialSize * sizeof(int));
+	a ->used = 0;
+	a -> size = initialSize;
+}
+
+int main(){
+	Int_Struct a;
+	int i;
+	
+	intArray(&a, 5); //initially 5 elements
+	for (i = 0; i < 100; i++) 
+
+
+//key realloc use
+
+if (a->used == a->size){
+	a->size *= 2;
+	a->array = (int*) realloc(a->array, a->size*sizeof(int));
+}
+//we just doubled the allocated space for array!

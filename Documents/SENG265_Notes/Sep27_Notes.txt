@@ -1,0 +1,54 @@
+
+strncpy(deststringname, sourcestring, num_of_chars_to_copy);
+rds);
+this will print the string's base memory address bcause
+you told printf to interpret as a %x rather than a %s
+s for string
+
+in C, we can manipulate pointers!
+
+char *cp = buffer //same as cp = &buffer[0]
+cp + n //same as &buffer[n]
+*(cp + n) //same as buffer[n] since you're saying:
+        //"go get the thing at this memory location"
+cp++ //same as cp = cp + 1; scroll thru memory
+*cp++ //increment the thing at this location
+
+strcpy is dangerous because it can write beyond the end of a string a
+nd screw up whatever is next to it in memory. this is how a buffer ov
+erflow attack works
+
+if (c=GetValue()){...}
+is the same as
+c = GetValue();
+if (c!=0){..}
+
+IDIOMATIC LOOP THING determines string length
+int len;
+for (len = 0; a_string[len] != '\0'; len = len + 1{}
+return len;
+
+MORE IDIOMATIC STILL determines string length
+char *c;
+int len = 0;
+for (c=a_string; *c != '\0'; c = c + 1){ loop slides the pointer every iteration, and checks to see if the end has been reached
+	len = len + 1;
+}
+return len;
+
+even more goddamn idiomatic
+
+char *c;
+int len;
+for (len = 0; c = a_string; *c; c++; len++){}
+return len;
+
+*c++
+//will first get the value at the location, THEN increment the value!
+
+Use strlen on the assignment!
+char *s = "Fine";
+*s = 'N';
+this will earn you a big fat buss error! You cannot modify a string literal!
+
+len = strlen(str);

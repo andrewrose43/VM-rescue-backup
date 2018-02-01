@@ -1,0 +1,31 @@
+less process than python
+got to get memorized all that python syntax that you looked up on the assignments
+need to know gdb but not valgrind
+be sure to review python dictionaries, maps, list comprehensions
+
+from panel discussion:
+communication in slack is a bit difficult but crucial
+when working on software, you must understand the spec!! (duh)
+if you're on time, you're late
+Don't only do what you are told
+Try to be the one that everyone goes to because you know a lot & are available
+
+
+from math import sin, cos, tan, pi
+
+def map_function(x, functions):
+"""map an iterable of functions on the object x"""
+
+	res = []
+	for func in functions:
+		res.append(func(x))
+		more I couldn't copy fast enough...
+
+
+lambda functions are useful for simple functions called only once
+
+
+def map_functions(x, functions):
+	return (res = [func(x) for func in functions])
+
+

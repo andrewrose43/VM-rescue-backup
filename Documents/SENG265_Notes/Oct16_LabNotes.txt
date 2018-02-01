@@ -1,0 +1,100 @@
+void *ptr = malloc(<size of the memory block in bytes>);
+on success, returns a pointer to the newly allocated block
+on failure, returns NULL
+
+ALWAYS CHECK THE RETURN VALUE OF MALLOC TO MAKE SURE IT WORKED!
+
+CASTING the pointer returned by malloc:
+char *ptr = (char*) malloc(sizeof(char)*4);
+
+an example...
+
+int main(int argc, char* argv[]){
+
+	int* my_int_array = (int*) malloc (sizeof(int)*20);
+
+	//CHECKING THAT MALLOC WORKED
+	if (!my_int_array){
+		printf("Error allocating memory.");
+		abort();
+	}
+
+	my_int_array[3] = 12;
+}
+
+
+Realloc tries to carve out a larger, sequential block in the original location, not moving anything, but this is rare. More often, it needs to go somewhere else, copy the existing data to a bigger block, and clear the old small block
+note that if it fails, it does not clear the old block
+
+int arr[10];
+
+sizeof(arr); //40 bytes
+sizeof(ptr); //4 bytes is the size of the pointer data type
+
+
+void function(){
+	int *i = malloc(sizeof(int));
+	//...
+	free(i);
+}
+
+Pitfalls
+Once you free() a pointer to a block of memory, trying to free() it again will cause an error.
+Once you allocate some memory, B stil does not check if you are staying within the bounds of the new block! That is up to you. Make sure you don't accidentally write beyond the bounds of th block you have allocated.
+
+malloc() will not give you an empty memory block. It will be full of garbage. Use memset or calloc to initialize your memory blocks.
+
+memset(<memory_ptr>, <set memory to this>, <size_bytes>);
+//memset requires the memory to be already allocated and does not do any allocation!
+
+void* ptr = calloc(<size_bytes>); //Sets memory to 0
+//calloc is just malloc with built-in 0 instantiation. clear allocate
+
+
+You can set memory contents just the same as you would with a char* using memcpy
+memcpy(<pointer_to_memory>, <data>, <size_bytes>);
+You can copy over any data type!
+really only works for primitive types though. it will copy pointer addresses if you try to copy structs or anything
+
+BINARY SEARCH TREES!
+
+typedef struct Nameval Nameval;
+struct Nameval{
+	char *name;
+	int value;
+	Nameval *left; //lesser
+	Nameval *right; //greater
+}
+
+
+inserting a node into a tree
+assume newp has been initialized
+Nameval *insert(Namecal *treep, Nameval *newp){
+	int cmp;
+	if (treep == NULL){
+		return newp;
+}
+cmp = strcmp(newp->name, treep->name);
+if (cmp==0){
+	fprintf(stderr, "insert: ignoring duplicate entry %s\n", newp->name);
+}
+else if (cmp<0) treep->left = insert(treep->left, newp);
+else treep->right = insert(Treep->right, newp);
+return treep;
+}
+
+inorder traversal: left, root, right (RECURSIVELY)
+pre-order traversal: root, left, right
+post-order: left, right, root
+
+Nameval *lookup(Nameval *treep, char *name){
+	int cmp;
+	if (treep==NULL){
+		return NULL;
+	}
+	cmp = strcmp(name, treep->name);
+	if (cmp==0) return treep;
+	else if (cmp<0) return lookup(treep->left, name);
+	else return lookup(treep->right, name);
+	}
+}

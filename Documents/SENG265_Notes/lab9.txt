@@ -1,0 +1,41 @@
+[\d]{5}
+matches a sequence of 5 DIGITS
+
+In order to match... an email address:
+buncha chars @ something.com
+
+'[\w]+@[\w]+\.[\w]{2,}'
+
+the {2,} makes sure the email address is @ somewhere with 2 letters or more
+
+
+\w matches 'word' characters: numbers, lowercase and uppercase letters, and underscores.
+
+Matching V numbers:
+
+[a-z][0-9]+ matches k9, A7, f001
+([a-z][0-9])+ matches r2d2
+
+[1-49] matches 1-4 and 9. the set of things that match is 1,2,3,4,9
+
+
+ptrn = r'[\w]+@[\w]+\.[\w]{2,}'
+
+that r'pattern' r there is how you create a pattern in python!
+
+str = "contains an email addr andrew.rose43@gmail.com"
+str2 = "some other thing"
+match2 = re.search(ptrn,str2,re.IGNORECASE) # welcome to option flags
+if (match2):
+	print("Match Found")
+else:
+	print("No Match")
+	
+groups = re.findall(ptrn, str) # this returns a list containing all the substrings that matched the regex
+
+substr = "XXXX@XXXX.XXX"
+newstr = re.sub(ptrn, substr, str)
+# the above will replace all instances of the 'ptrn' regex with instances of substr
+
+regex101.com
+is where you can practice all this!

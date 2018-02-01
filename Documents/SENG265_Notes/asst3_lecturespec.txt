@@ -1,0 +1,7 @@
+we are provided an excel spreadsheet w/ scheduled and actual departure times for ferries
+
+Need to be able to enter a number 1-12 to select a month to calculate avg departure delay
+
+select via input t or s whether you want tsawassen or swartz bay
+
+

@@ -1,0 +1,54 @@
+INTEGERS ARE IMMUTABLE.
+
+a = [1,2,3]
+b=a #b now points to the same thing that a does!
+a.append(4) #this changes the list pointed to by both a and b!!
+
+def get_final_answer(filename):
+	"""Documentation String"""
+	line1
+	line2
+	return total_counter
+
+It's possible to redefine system functions for new parameters...
+
+def append(l,x):
+	l.append(x) #this code/function/whatever is LOCAL
+
+#!/opt/bin/python3
+#must be in your code?
+#that's where python is located on your computer
+
+every module included could have its own main function
+
+that if __name__ == "__main__":
+main()
+thing
+is needed to make the main run.
+
+FOR LOOPS
+for <item> in <collection>:
+	<statements>
+
+line.strip() will take a line from stdin
+line.split() will return a list of words in the line that was just dumped in line by line.split()
+
+li = [3,6,2,7]
+[elem*2 for elem in li] # you need to assign this to equal something in reality
+[6,12,4,14]
+
+[expression for name in list]
+
+li = [('a',1), ('b', 2), ('c', 7)]
+[n*3 for (x.n in li]
+[3,6,21]
+
+li = [3,6,2,7,1,9]
+[elem*2 for elem in li if elem > 4]
+[12, 14, 18]
+#only produces any output at all if elem>4. If not, output contains no product of elem
+
+We now are able to do Assignment 3!
+
+Go through ALL the Practice Python exercises in preparation for the final!
+

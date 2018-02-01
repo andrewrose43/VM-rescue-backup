@@ -1,0 +1,44 @@
+GIT
+
+A repo remembers every committed change to every controlled file
+Clients though normally see the latest version of the file structure.
+
+Don't want Sally's later edits to destroy Harry's earlier edits if they started working overlapping each other
+
+One idea: lock the file while Harry edits it. Make Sally wait until he is done. Then she can lock it
+
+But this is not great. Could cause huge inconvenience
+Also gave a false sense of security which could be easily defeated
+
+Copy-modify-merge:
+if you push a change and something has been pushed since you took the old version, you compare the new one to your newest one, merge them manually and push that
+
+What is git?
+
+Google Linus Torvalds, listen to him talk about why you should use git
+
+Anyone can be a server and anyone can connect. in the past there would be one repository everyone drew from, but with git, every user could have a public repo to pull from. in practice, one team member becomes the 'repository of record'
+
+to create an empty git repo, type:
+git init
+in the desired directory
+
+then, to test it...
+create a .txt, put something in it and save
+edit it and save it as some other name
+do that again; you now have 3 different files
+
+git commit -m "first change"
+edit it again
+git add file.txt
+git commit -m "second change"
+
+git status
+this will now show you your repo
+
+use checkout to take a particular version of a file...
+
+here at uvic, i have my own repo on git.seng.uvic.ca/seng265/andrewrose
+
+teachers can pull from but not push to our repos
+

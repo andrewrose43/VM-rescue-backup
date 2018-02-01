@@ -1,0 +1,45 @@
+Jupyter notebook is a method to contain code and documentation in one.
+Lets you put formulas and figures, etc alongside the actual code.
+
+You put segments of code within a text document... this is like a Google Doc. Great for collaboration.
+
+Self in python is like this in java
+there is usually a special method called __init__ in any class, which instantiates the thing
+
+class Student:
+	def __init__(self, n, a):
+		self.full_name = n
+		self.age = a
+	def get_age(self):
+		return self.age
+	def set_age(self,num)
+		self.age = num
+		print(self.age)
+
+b = Student("Bob", 21)
+print(b.age)
+b.set_age(23)
+print("old age: {}, oops new age: {}", b.age, b.set_age(23))
+# the above code might be a little wrong
+
+class Sample:
+	x = 23 # class attribute
+	def increment(self):
+		self.__class__.x += 1
+		self.y = 2 # data attribute
+
+a = Sample()
+a.increment() # you declare it with self but do not give it itself as a parameter
+print(a.__class__.x)
+print(a.y)
+
+
+class counter:
+	overall_total = 0
+	def __init__(self):
+		self.my_total = 0
+
+	def increment(self):
+		counter.overall_total = counter.overall_total + 1
+		self.my_total = self.my_total + 1
+# finish this... go thru the jupyter document

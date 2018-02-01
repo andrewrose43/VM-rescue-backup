@@ -1,0 +1,72 @@
+an array is a CONTIGUOUS block of memory!
+
+declaration...
+int my_array[SIZE];
+int* my_array = NULL;
+the compiler sets aside SIZE*size_of_datatype for the array! an int is 4 bytes for example
+
+assignment...
+my_array[0] = 12;
+my_array = {1,2,3};
+
+c will allow you to store past the end of an array without warning. this will screw you over pretty bad.
+
+In C, strings are arrays of chars.
+2 ways to declare
+
+char my_string[25] = "I'm a monkey!";
+char* my_other_string = "I'm not!";
+//note extra room in the monkey string
+//the other string's length is equal to (num of characters + 1 for the null terminator)
+
+strlen() will tell you the lanth of a string
+
+./lab4 command line arguments 543 --infile --sort
+
+"command line arguments" should register as one single argument
+
+strtok()
+
+strtok(char* string_to_tokenize, string_with_separators);
+strtok(NULL, string_with_separators);
+
+char* t = strtok(line, " ,;("); //this will now recognize any one of those things as delineators
+upon the first call to a strtok, it modifies the original! So save a copy of the original so that your thing does not get sliced all over
+it puts nulls where the delineators were
+and it stores pointers to all the locations of the tokens in some inaccessible array
+and it returns the first pointer
+
+on remaining strtok calls, do it like this: strtok(NULL, string_with_separators);
+
+a couple more things to help with the assignment...
+STRUCTS
+
+typedef struct book_t{
+	int numl
+	char title[50];
+}book_t;
+
+book_t book1 = {1, "foo"}; #Must be in order!
+book_t book2 = {.num=2, .title="bar"};
+book_t book3;
+book3.num = 1;
+strncpy(book3.title, "snafu\0", 6);
+
+qsort
+
+C has the qsort function!
+takes in an array and a sorting function
+
+qsort(array, num_elements_in_array, size_of_datatype, sort_function)
+
+int sort_numbers(const void *a, const void *b){
+	return (*(int*)a < *(int*)b); //casting a as an int pointer
+}
+
+int values[] = {40, 10, 100, 90, 20, 25};
+qsort(values, 6, sizeof(int), sort_numbers);
+
+Check out qsort_example.c in the Lab 4 folder on Connex!
+strings.c is also a good resource with a zillion examples of how strings work!
+
+

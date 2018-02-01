@@ -1,0 +1,65 @@
+eveyrthing is on midterm but the software process and dynamic memory.
+
+make sure that when you look at while loops, you realize that pre-decrementing the loop condition means that the loop runs on the decremented version. And THEN it breaks, because when the loop starts AGAIN is when the loop condition is evaluated as false
+
+runs for argc-1 iterations
+argc is 5
+runs for 4 iterations
+
+
+
+you can call the main! main(++i);
+
+and then if it's main(argc) ++i becomes argc
+
+void fun(int);
+
+int main(int argc){
+	printf("%d ", argc);
+	fun(argc);
+	return(0);
+}
+
+void fun(int i){
+	if (i!=4) main(++i);
+}
+//this program will print 1 2 3 4
+//since calling it means just one argument. arc starts as 1
+
+
+The following program does not end because it tries to assign a value to a strig literal!! string literals are immutable!
+//never mind
+
+this is fine:
+char str[] = "GfG";
+*(str+1) = 'n';
+because the string was declared as a char array, and not a string literal, it is mutable!
+so it it will become GnG
+
+But if you declare a string literal using malloc, it IS mutable.
+Because the string is in the heap, it is writable.
+char* asdf = (char*) malloc(sizeof(char)*size);
+*(str+0) = 'G';
+//this is okay!
+//the assignment will work
+//look up why that is!
+
+typedef struct record_struct{
+	int id;
+	char name[50];
+	float percentage;
+}record;
+
+look out for functions which declare stuff out of main scope
+
+So anything declared in the heap is accessible regardless of function scope
+
+distinction: char *str
+return str;
+//will return a POINTER properly
+
+but
+char str = "asdf";
+return str;
+//this will return garbage because a string literal and not a pointer to a char is being returned, and thus it only exists in function scope.
+

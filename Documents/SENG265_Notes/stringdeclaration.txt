@@ -1,0 +1,18 @@
+char str[40] = "Here is my text";
+
+what you have done here is allocate an array of 40 characters. The first 15 characters will be set according to the specified string. The rest will be set to nulls. This is useful if you need to modify the string later on, but it will never be able to contain more than 39 characters plus a null terminator
+
+
+
+char str[] = "Here is my text";
+
+This is identical to the first example, except that str is now limited to holding only 15 characters plus a null terminator
+
+
+
+
+char *str = "Here is my text";
+
+str is not a pointer to a string of 15 characters and a null terminator. You cannot modify the string itself, but you CAN make str point to somewhere else! This could be useful if the str declaration is contained within a method and thus is limited in scope such that the old, not-referred-to-anymore crap will be junked when the method is exited
+
+

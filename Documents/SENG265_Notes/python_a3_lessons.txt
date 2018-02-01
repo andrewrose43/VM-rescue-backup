@@ -1,0 +1,9 @@
+li = sorted(li, key = lambda x: x[1], -x[0])
+	#will sort by the second item in the subli and then by the first item in the subli in reverse order (minus sign)
+
+Setting nargs to '?' will do this...
+One argument will be consumed from the command line if possible, and produced as a single item. If no command-line argument is present, the value from default will be produced. Note that for optional arguments, there is an additional case - the option string is present but not followed by a command line argument. In this case the value from const will be produced. This is useful for allowing optional input and output files.
+
+'*' is the nargs operator you have been looking for in asst 3's ferry thing. It gathers all present command-line args into a list. '+' is the same, but it also generates an error message if there was not at least one command-line argument.
+
+Once you have used the * operator as above to open multiple files, args.filename will be a list that can be iterated through

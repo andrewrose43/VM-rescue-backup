@@ -1,0 +1,61 @@
+Dynamic Memory continued
+
+How to add an item to front of linked list
+Nameval *addfront(Nameval *listp, Nameval *newp)
+{
+	newp->next = listp;
+	return newp;
+}
+//works even if list is empty
+
+adding an item to the end: traverse list until last node,
+adjust that node's pointer to point to the new node
+
+Finding an item, like adding an item, is O(n)
+
+a function called "apply" can just traverse a list, running a function on each node
+void apply(Nameval *listp, void (*fn)(Nameval*, void*), void *arg){
+	//this works with any function that takes a nameval and something else
+	for ( ; listp !=NULL; listp = listp->next){
+		(*fn)(listp, arg); //call the function
+	}
+} 
+
+
+apply(nvlist, printnv, "%s: %x\n");
+
+void inccounter(Nameval *p, void *arg){
+	//cast the *arg as an int...
+	int *ip;
+	//p is not used! All we care about is that this function is called once per node.
+	ip = (int*) arg;
+	(*ip)++; //note the parentheses!
+}
+//in this case, apply's "*arg" would be fed the ADDRESS of a zero to be counted from!
+//So the n, the counter value, is created outside of function scope, and its address is passed to apply!
+//then (*ip)++ increments the thing at that address.
+
+FREEING THE LIST
+BAD example:
+for (listp; listp != NULL; listp = listp->next) free(listp);
+//this does not work, because listp will be freed, and the next that the loop relies upon will be obliterated before it is referenced
+
+GOOD:
+Nameval *next;
+for (; listp != NULL; listp = next){
+	next = listp->next;
+	free(listp);
+	}
+}
+//so what happens here is that every loop, listp moves on one
+//but every loop, the reference node is changed to a node that was saved as the next node BEFORE the old node was deleted.
+
+Deleting elements from the list...
+
+harder to do than adding an element
+
+THE MIDTERM
+
+The development process and dynamic memory will not be on the midterm!
+Everything else will.
+

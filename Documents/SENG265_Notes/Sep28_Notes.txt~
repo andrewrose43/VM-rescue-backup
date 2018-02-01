@@ -1,0 +1,22 @@
+void main(){
+	char s[] = "C++";
+	printf("%s \n", s);
+	s++;
+	printf("%s \n", s);
+}
+
+this code is faulty and will result in a compile error!
+
+correct version"
+
+void main(){
+        char s[] = "C++";
+	char *p = s;
+        printf("%s \n", s);
+        p++;
+        printf("%s \n", p);
+}
+
+the moral of the story is that you cannot increment a string,
+but you can increment a pointer to a string
+

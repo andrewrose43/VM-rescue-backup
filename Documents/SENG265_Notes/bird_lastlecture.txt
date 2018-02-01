@@ -1,0 +1,32 @@
+SOUPS
+
+look at site's source code to find how the soup info is formatted
+
+ancient unix tool called cron (possibly misspelled) gets a thing to run on a regular period/interval
+
+Don't use webscraping. It's unreliable - they could change the webpage at any time.
+
+wiki_walk.py
+finds shortest path between two wikipedia articles - go through this code!!
+
+Soup Code...
+soup_url = "the soup url"
+import urllib.request # support for fetching webpages
+with urllib.request.urlopen(soup_url) as page:
+	page_data = page.read().decode('utf-8')
+
+with open('asdfasdf.txt') as f:
+	# duck typing: allows for use of file-like objects
+	# allows you to pass "wrong" data types so long as the things have all the behaviour you need
+	# if it looks like a duck and quacks like a duck, it's a duck
+
+# so how to mine the data? use regex!
+# advice: play with python interactively. don't just write scripts
+
+	#L = re.findall(regex, page_data)
+	#you can use len(L) to figure out how many items re.findall grabbed
+	# Bird can't emphasize enough how important it is to write regular expressions in the interactive environment. Much less frustrating.
+	# .* matches as much stuff as it can until it has to stop
+	# so de-greedify it!
+
+	# so get the whole page, break it into blocks, and then 

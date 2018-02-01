@@ -1,0 +1,44 @@
+Be sure to test Asst 2 using the .zip test files on Connex!
+
+Your program needs to run its sorting algorithm on a linked list! (Of words!)
+
+getline() uses realloc in its implementation
+
+When comparing strings, just change them all to lowercase. There must be a function for that.
+
+Look up getline()! Figure out what the deal is.
+
+
+DEBUGGING
+
+A bug is NOT something causing the compiler to make an error message or  any kind of error which causes the linker to report a problem. It refers to anything that makes the program behave in a way other than what is expected.
+
+error: the incorredt code fragment which causes the fault
+fault: the state of the program which leads to the failure
+failure: something visible to the user of the program
+
+Take the example of a loop that finds the lowest of a player's scores.
+Forgetting to initialize the variable that stores the lowest score would be an error.
+@ runtime, the search then fails to find the correct lowest score. This is a fault.
+
+memory leak: forgetting to free memory. You eventually run out of memory.
+
+these are some, not all, of bug categories
+A - algorithm was poorly conceived
+	-off-by-one errors
+	-logic errors (simply wrong algorithms)
+	-validation - failure to check validity of variables. ex. cases of input that immediately break loops
+	-performance: an inappropriate algorithm, or a coding error which leads to unacceptable performance
+D - read or wrote wrong Data
+	-index: an array index is wrong
+	-limit: incorrect handling for the first of last elements in a sequence
+	-number: issues related to how numbers are represented in the computer
+	-memory: attempting to access an inaccessible location, deallocating a block twice, failing to deallocate a block, continuing to use a pointer to a block after the block has been freed
+F - Forgotten
+	-missing: forgetting to provide code for some case
+	-location: code appears in the wrong place or is out of order
+B - Blunder
+	-incorrectly written expression
+	-variable: wrote the wrong variable name
+	-language: a mistake encouraged by the language syntax
+

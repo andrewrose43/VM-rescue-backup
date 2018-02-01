@@ -1,0 +1,183 @@
+Converting Latitude/Longitude/Conditions tab separated input into formatted output or into an HTML table
+
+Harder problem: convert formatted output back to a table.
+	important point: every input line has the same format bc it is written by a program
+
+exerciese: write a python function match(s) which tests whether the string s...
+
+-starts with 'aa' or 'ee'
+-consists of one or more wordscontaining only uppercase or lowercase letters
+-has all occurrences of the letter 'a' come before any occurrence of the letter 'b'
+-is a single HTML tag
+-more. see slides if you like
+
+def startswith_ee_or_aa(s):
+	return s.startswith('ee') or s.startswith('aa')
+
+#startswith is the bomb!
+
+def ContainsOnlyWords(s):
+	"""returns True if s consists of one or more words containing only uppercase and lowercase letters. Returns False otherwise."""
+	#.split() splits by all whitespace if given no input parameters
+	#see slides
+
+see slides!
+
+grep
+
+REGULAR EXPRESSIONS
+ways of specifying a pattern that can be matched against a string
+
+tangent
+vi is a mode of another editor
+this editor was called ed
+ed test.txt
+
+then ed got visual mode
+then you could use 'vi' to start it up in visual mode
+
+grep is for searching thru a file for regular expressions
+
+$ grep ytho english_words.txt
+mythology
+pyhon
+mythological
+etc
+
+The idea behind regular expressions:
+
+"I want to search for xy preceded by beginning of line."
+#Search for all lines beginning with 'xy'
+grep ^xy english_words.txt
+
+see slides!
+
+#Search for all lines containing 'a', 'b', and 'c' separated by ONE character.
+grep a.b.c english_words.txt
+drawback
+drawbacks
+barbecue
+barbecued
+barbecues
+barbecuing
+playback
+
+'.' will match any character except a newline
+a... matches all four character sequences beginning with 'a'
+'*' matches the previous character zero or more times
+'ab*a' matches 'aa', 'aba', 'abba', 'abbba', etc
+	it works on the case where * matches zero times!
+
+grep princes* english_words.txt
+prince
+princes
+princess
+!princesses #THIS ONE WOULD NOT APPEAR because of that 'e'
+
+[] can be used to match one of a collection or range of characters
+[aeiou] matches any vowel
+[A-Za-z0-9] matches uppercase and lowercase letters as well as numerals!
+
+Confusingly, outside square brackets a caret^ marks the START OF A STRING, but INSIDE square brackets, a caret^ means "none of these"
+
+grep ^[^u]*ou$ english_words.txt
+you
+thou
+bayou
+caribou
+
+bracket expressions can be inverted by adding the '^' character after the opening bracket
+
+#search for lines with the substring 'ba' before the substring 'ab'
+grep ba.*ab english_words.txt
+
+The re module provides regular expression suport in Python.
+
+Regular expression syntax is not consistent between implementations; the Python dialext is among the more readable variants
+
+import re
+
+m = re.match('[A-Z][a-z]* [A-Z][a-z]*', 'Bela Lugosi')
+#returns something positive or something because it's two words each with a capital followed by lowercases
+Otherwise, it would return None.
+None evaluates to True
+
+re.findall can return things you don't want - ex. might find a positive value by ignoring the '-' in front of what's actually negative
+
+\w means "any alphanumeric character or underscore"
+
+\w+\s+\w+
+"one or more alphanumeric characters or underscores then one or more spaces then one or more words"
+the + means "one or more occurrences, unlike * which is zero or more... see the slides! holy crap there are many things in the slides
+
+
+LECTURE 2
+
+Bird made a mistake!
+
+When you compare None with things, which you would never need to do,
+...never mind
+
+The 'is' operator...
+You can ask if things are == in Python
+
+But the 'is' operator asks whether two things reference the same place in memory.
+
+\w+ will signify "an alphanumeric character or underscore and... "
+'[Ll]ives' will match Lives or lives
+
+(\w+ ) creates a subexpression, which can be repeated one or more times with the + metasymbol:
+(\w+ )+
+
+Review diff between + and *
+
+(dead|undead) will match dead or undead
+Alternatively: (un)?dead will match dead or undead
+more than one occurrence of un will NOT match that! the ? operator only matches for one or no instances of a string
+
+Contrived Exercise: design a regular espression 
+
+'\n' is a new line.
+to prdoduce the string '\n' as those characters and not a new line, do '\\n': the first backslash causes the second to be interpreted as a normal character.
+
+In python you can put backslashes anywhere except at the end of the string
+
+def is_match(s):
+	if re.match(r'int\s*[A-Za-z_]\w*;',s);
+		return True
+	return False
+
+Chande the first * to a + to require at least one space after 'int' (this is the difference between * and +: * can be equated with zero occurrences of a thing
+
+\s is a space or tab or some other stupid character. can be modified to also include newlines, don't know how
+
+Building everything up in slow steps. Going backwards is way harder than making one of these things.
+
+Deterministic Finite Automaton
+A DFA is a form of state machine, and can be represented by a graph with a vertex for each state.
+The one on slide 28 is equivalent to the regular expression 'a*b+c?d'
+if you reach the GOAL state when you are at the END of the string, then you have a match.
+any number of 'a's, at least one 'b', one or no 'c's, and a 'd'
+
+Using a regular expression more than once isn't computer-expensive!
+python will have the expression cached and ready to reuse. do not worry
+
+The match object returned by re.match can beused to extract information from the matched text!
+
+The () operator has TWO functions in a regular expression: creating subexpressions and capturing data.
+
+print(m.groups())
+
+{3} after a regular expression means "exactly three times"
+
+Groups are numbered (starting at 1) based on the rder of their LEFT BRACKETS. So a group inside group 1 is group 2.
+
+The contents of a group can be matched inside a regular expression with specifiers '\1', '\2', '\3', ...
+
+re.findall(P1, S) #where P1 is a reg expression and S is a string
+will return a tuple with all the instances of things that fit the regular expression
+
+The function re.sub(pattern, substitution, S) replaces all occurrences of 'pattern' in 'S' with 'substitution'. The substitution string can regerence groups captured by the matched pattern.
+
+
+

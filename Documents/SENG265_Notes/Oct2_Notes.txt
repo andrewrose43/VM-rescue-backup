@@ -1,0 +1,72 @@
+Reviewing tokenize.c
+
+...
+
+Notes from SLides
+
+int main(int argc, char *argv[]){//char *argv is an ARRAY OF STRINGS. It signifies that you are expecting multiple input strings after the program name when this is run.
+	//argc refers to the number of arguments to be passed
+	//argv[] is a pointer array pointing to each argument passed to the program
+
+note: you cannot take input such as char *argv[] and assign that to an int. It is cast as a string! Not an int! Error!
+
+int main (int argc, char **argv){
+	//note there are no square brackets - this is ONE pointer, not an array of pointers
+	//you do NOT just type in a memory address
+	//it is a pointer to a pointer because of how STRINGS work in C
+	printf("%s\n", *++argv);
+	return 0;
+}
+//for someinput Ididn't copy down,
+//This prints "one"
+//the input arguments are pointers to pointers to chars
+//it's a set of addresses of strings!
+//so the *++argv marches through memory.
+Why doesn't 
+//crap. I didn't get the double asterisk thing that was in slides not on the draft Connex version
+
+So the way I think it works, after working through it a bunch, is that there are TWO ways to input strings to a C program.
+
+The first, most straightforward way is to say: int main(int argc, char *argv[])
+where you are obviously using the command line to provide your program with an array of char arrays (an array of strings)
+
+The second way is to say int main(int argc, char **argv)
+this provides your code with the address of the zeroth input string (which will be the name of the executable!)
+All your inputs, of course, are stored somewhere in memory. 
+When you're writing the code that RECEIVES all that...
+	argv is that address. *argv is the address of the first string! and **argv would be the first char in the string!
+		the char thing is that way because c knows to treat char arrays as strings (different from other arrays) when you send them to printf with a good old %s. The %s says to printf: "Hey, you need to take this thing and keep adding chars to what you print here until you get to a null terminator!"
+	
+
+fgetc() reads a single character from an open file (so long as the file was opened in "r" mode)
+it returns an int!
+
+fgets() is fgetc() for a string.
+it returns null after it gets to the end of a file.
+it scrolls through lines like strtok scrolls through tokens
+
+FILE *fopen(char *filename, char *mode)
+	if error prevents opening of file, returns 0 (null)
+
+char *gets(char *buf)
+is an unsafe, don't-use-it version of fgets
+
+int scanf(char *format, [...])
+	makes program stop and wait for text to e input. from standard input (user can provide data, or stuff can be piped in)
+
+fputc() will output a single character to the open file (file was opened in "w" mode)
+
+fputc outputs a single character to the opened stream
+
+
+
+OKAY THAT KAHOOT QUIZ WAS HARD
+
+Question 1
+
+int main(int argc, char *argv[])
+
+HOW TO PIPE TO TOKENIZE.C
+
+couldn't be sone as we were provided with it.
+needed damian's mods to work.

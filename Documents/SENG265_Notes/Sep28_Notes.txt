@@ -1,0 +1,5 @@
+ main(){
+
+char s[] = "C++";
+
+printf("%s 

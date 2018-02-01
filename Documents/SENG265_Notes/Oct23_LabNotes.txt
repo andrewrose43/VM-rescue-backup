@@ -1,0 +1,65 @@
+C does not allow you to return multiple data types! So you can pass pointers to functions to modify multiple variables.
+
+slide 4
+
+void func1(int n, int a){
+	a = n;
+	printf("func1(a) = %02d\n", a);
+	fflush(stdout);
+}
+
+int main(int argc, char **argv){
+	int x = 0;
+	int *z = NULL;
+	func1(1, x
+
+
+//answer to slide 4 is c)
+//failed to pass a reference. just passed a value.
+
+answer to slide 5 is a)
+
+answer to slide 6 is b)
+//recall that memset sets all bytes in the malloced space to the specified value
+
+answer to slide 8 is D) segfault. we tried to pass *z, a null, to func4. 
+//inside the func4 function, everything works and 4 is printed!
+problem is when x = *z is called. *z is still null! problem!
+//func4 sets *a to point to something else
+//that does not change what *z points to. *z is still pointing to null. and then the function-scope pointer's contents are memsetted.
+should use a double pointer here!
+
+or you could do what is done on slide 9. answer is b)
+
+slide 10 is d) segfault
+
+slide 11 is c) garbage
+//accidentally printed a memory location
+
+slide 12 is b) works correctly but there is a TYPO. func7(7, z) should be func7(7, &z)
+//here, the double pointer is unnecessary but it works fine!
+
+VALGRIND
+is used to check for memory allocation errors. In order to use it, your program needs to be compiled with -g
+
+To use it:
+valgrind <whatever you would normally put to run your program>
+bolded line shows location of error; second bolded line shows where the associated block of memory was last allocated, reallocated, or freed
+
+gdb
+
+while using it, a command of break 5 will add a breakpoint at line 5then, while you are stopped at the breakpoint, you can print num
+just tell stuff to print that you want to check up on!
+
+saying "step" while in gdb will move to next line of code, even if that means going into functions
+next will not go into functions but otherwise is like step. it evaluates the entire function and keeps in place. this is useful when you want to avoid having to debug printf because you know that works.
+
+clear [linenum] will remove a breakpoint from that line
+
+saying "watch j" will report on the value of j every time you use next or step
+ 
+you can print stuff using p OR print
+
+finish will run through the end of a function currently running
+
+emalloc prints the error and then exits whenever it finds an error.

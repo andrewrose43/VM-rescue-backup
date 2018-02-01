@@ -1,0 +1,52 @@
+.h (headers) and associated files.c
+
+Separate the function declaration from function implpementation code
+
+".h" files contain function signatures
+<type> func_name(args);
+
+".c" files contain function signatures too
+<type> func_name(args){
+...
+}
+
+Compiling w/ user-defined .c giles
+
+First produce objet files:
+
+-gcc -c user_defined_file.c
+the -c produces an object file instead of an executable
+got to run this on ALL the .c files you intend to link!
+
+where user_defined_file.c contains implementation of functions declared in user_defined_file.h
+
+Then link the object files:
+gcc -o prog prog.c user_defined_file.c u_d_f_2.c
+
+#ifndef STRAWMAN //this goes through subsequent code only if STRAWMAN is not defined
+
+#endif
+//everything after that runs as normal
+
+note that in Family_stats.c, there exist functions only defined in the other .c files! this is ok
+
+The C Preprocessor
+runs before the compiler.
+-macro processing (replaces #define values with raw values)
+	-macros are those #define statements
+-includes additional C source files
+-conditional compilation
+
+Details of the problem domain are never fully understood
+
+Accidental complexity: problems created by and fixable by engineers
+
+Essential complexity: unavoidable. Caused by the nature of the problem
+
+requirements are tough to communicate, document, negotiate, AND manage!
+
+Got to have continuous access to stakeholders! Have incremental and iterative software development approaches!
+
+Avoid a waterfall approach; a linear start-do-finish approach
+
+Scrum: checking progress and  daily meeting to discuss it and any necessary changes to the course. 15 minute daily meeting.

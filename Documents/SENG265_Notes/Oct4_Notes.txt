@@ -1,0 +1,109 @@
+STRUCTURES
+
+struct dayofyear{
+	int month;
+	int day;
+	int year;
+	float rating;
+}
+
+In C, the data type 'struct' is a way of grouping information
+
+DECLARATIONS
+
+struct {int x; int y; } id;
+//we haven't declared a variable of that type. anonymous struct
+
+struct point{int x; int y; };
+//struct point is a new type!
+
+struct point{int x; int y;} x, y, z[10];
+//struct point is a new type; x, y, z[] are variables
+
+typedef struct point {int x; int y;} Point;
+//struct point is a new type; Point is a synonym
+
+struct dayofyear calendar[365];
+calendar[180].day = 27;
+calendar[180].month = 9;
+calendar[180].year = 2013;
+calendar[180].rating = 1.0;
+
+struct body_stats_t family[4];
+
+you can rename basic data types!
+
+typedef unsigned long int ulong;
+typedef unsigned char byte;
+ulong x, y, z[10];
+byte a, b[33];
+
+void print_stats(Body_stats p){
+	printf("Member with code %d is named %s
+n", p.code, p.name);
+}
+
+let's say you decide that you want multiple programs to use a section of a program. let's get linking...
+
+create a file called myfirstheader.h and myfirstheader.c
+and then wherever you want to use it, put a #include "myfirstheader.h"
+
+myfirstheader.h could be as simple as:
+
+
+#ifndef BODY_STATS_H
+//if not defined, run this code
+#define BODY_STATS_H
+//here we don't give CHECK_H a value, but we define it so that the compiler knows the variable has been defined.
+//BODY_STATS_H never contains a value! It's just a means of avoiding redundancy
+
+For every header function, have only one implementation.
+
+note that the .h file must be included both in the place you want it and in its same-name .c file
+
+gcc -o Family_stats Family_Stats.c my_first_header.c
+gcc -o [name of executable] [things to be linked]
+//note that the .h does NOT need to be mentioned when compiling
+
+typedef struct body_stats_t{
+	int codel
+char name[20];
+float weight, length;
+} Body_stats;
+//Body_stats is a synonym for struct body_stats_t
+
+//note: the above block of code combines the creation of a struct with the creation of a typedef nickname for it
+//typedef struct my_type{
+[variables]
+} asdf;
+//you can now refer to my_type as either my_type OR asdf!
+
+void print_stats(body_stats_t x);
+#endif
+
+
+and then
+
+gcc -c myfirstheader.c
+gcc -o Family_stats Family_stats.c my_first_header.c
+
+myfirstheader.c...
+
+#include <stdio.h>
+#include "myfirstheader.h"
+
+void print_stats(Body_stats p){
+	printf("Member with code %d is named %s\n", p.code, p.name);
+}
+My problem with tokenize.c was that I was trying to send it standard input when it wanted input from the argument line, which is a different source!
+
+fopen uses stdin
+
+fopen(buffer, max_len, stdin)
+
+when it sees stdin it knows to wait for input
+what you put into stdin then becomes the value of buffer!
+
+You could use a | pipe to send to a program this way.
+
+You CANNOT use a | pipe to send information that should be send through the argument line!

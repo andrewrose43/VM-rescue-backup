@@ -1,0 +1,15 @@
+And now for something completely different...
+
+DOWNLOAD AND INSTALL PYTHON!
+www.python.org
+
+go to practicepython.org to practice python!
+
+A Code Sample
+
+x = 34 - 23	#A comment
+#	indentation is key! Indentation takes the place of curly braces. I like this.
+
+z = 5/2	#answer is 2, integer division
+	#unless you're doing Python in the labs, where that version does float division by default
+

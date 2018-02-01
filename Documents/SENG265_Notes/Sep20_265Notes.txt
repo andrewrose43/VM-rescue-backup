@@ -1,0 +1,84 @@
+adding gotcha
+
+add results in a file or directory being staged for commit.
+
+When commit is performed, changes to staged files are stored into the local repo.
+
+git commit -a -m "message"
+that -a will simply stage and commit all modified files
+
+You must add a file after every modification, not just once!
+unless you use -a.
+
+Never store generated files in the repository! Just store source files!!
+
+other stuff is just not useful to commit.
+
+.gitignore files use each line of the file as a pattern
+possible entries:
+*.pyc
+*.o
+*.exe
+
+Avoid committing compiled source code, packages, logs and databases, and OS-generated files.
+
+Conflicts...
+
+If we don't see a clean report when we push... this is what happens when someone pushes while you are editing
+conflicts ofc do not show up whe you commit. just when you push
+
+the new pusher decides which to keep
+
+Stewie seemed to be able to open the conflicted version in vim in his working directory. what? how does that work?
+
+ANSWER:
+pushing will create a conflicted file!
+pull gives you the conflicted file! In your working directory!
+
+Pull requests: when you ask a core team to pull your fork (a clone which becomes your local repo) 
+
+then they pull from your fork
+
+and it gets merged with the project repository
+
+95% of pull requests are accepted within a month
+avg: a week
+sometimes an hour
+
+git remote
+this command allows you to add an existing remote server to places you can push to
+
+git diff
+tells you differences between your commits and the current snapshot
+
+> writes output to a file
+| feeds output into input
+
+date; who; pwd
+will just run all three sequentially
+
+AW YISS WE'RE STARTING WITH C
+
+put them #include statements right at the top
+
+then the #define statements
+#define MAX_LEN 256
+
+then your function declarations
+
+then your int main
+
+argv[0] is always the name of the program!
+
+int main (int argc, char **argv){
+	//argc is argument count
+}
+
+that *c equals zero when you have reached a null terminator.
+*c is a pointer to the string that then scrolls through character by character.
+when you hit the null terminator, that equals zero (aka false) and the loop breaks!
+
+create a string in c and it is full of random crap
+
+fgets itself keeps a counter keeping track of which line you are on?
+

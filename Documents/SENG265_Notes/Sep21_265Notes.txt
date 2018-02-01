@@ -1,0 +1,97 @@
+INTRO TO C
+
+gcc -Wall -c hello.c
+is how you compile.
+-Wall is "with all warnings"
+compiles into an object file, NOT an executable, in this case
+then
+gcc -o hello hello.o
+links the object file to the Standard C Runtime Library
+or: gcc -o hello -lm hello.o //link in the math library
+
+Or to go straight from code to executable:
+gcc hello.c -o hello
+
+include debugging flags:
+gcc -g hello.c -o hello
+
+./hello
+will run the hello executable
+
+all C programs must have ONE main() function
+
+keywords are always lowercase
+
+statements must be terminated semicolons
+
+/*you can do these comments*/
+
+editor->compiler->[add libraries, object files]linker
+
+Any amount of white space in C is considered a single space.
+
+use underscores_for_variables, rather thanCamelCaps
+
+there are no booleans in c
+zeroes are false, all else is true
+
+struct types: one mechanism to declare user-defined types
+very different from Java classes!
+
+array types: you can define an array of any type
+
+char ch = 'A', bell = '\a', formfeed = '\f';
+
+STRINGS
+char *s = "asdf\n";
+s is a variable holding an address to a static string table!
+
+char s[50] = "abcdefg";
+printf("message is %s", s);
+this will NOT print out a bunch of random crap with the remaining 43 characters!
+
+C Arrays
+
+char *t = "asdf"; //this will also work!
+how?
+
+why is there that bus error from slide 16?
+BECAUSE
+that second method
+char *t = "asdf";
+will not create an array. it creates a read-only batch of chars.
+thus attempts to modify the non-array will cause errors!
+
+
+
+if an array is dimensioned to hold SIZE elements, they are indexed from 0 up to SIZE-1
+
+The size of an array must be known at compile time!
+
+The size is not a part of an array data structure! The programmer has to manage correct access to an array!
+
+double f[3] = {0.3, 14, 55.3};
+
+int freq[10] = {20,12}; //freq[0] == 2, freq[1] = 12, freq[anything larger] = 0
+
+note: mixing up = and == will not trigger a warning of any sort. watch out!
+
+switch(var){
+	case 1:
+		etc
+		break; //don't forget the break!!
+	default:
+		etc
+}
+
+do{
+S;
+} while (bexpr);
+
+C implements call-by-value parameter passing, NOT call-by-reference
+
+that means that stuff passed is not altered in place
+
+
+
+The C library function char *fgets(char *str, int n, FILE *stream) reads a line from the specified stream and stores it into the string pointed to by str. It stops when either (n-1) characters are read, the newline character is read, or the end-of-file is reached, whichever comes first.

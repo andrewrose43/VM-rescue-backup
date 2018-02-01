@@ -1,0 +1,39 @@
+pairsum should input an array of positive integers and output true if there is any pair of numbers that adds to 225, else false
+
+NoPair_1000000.txt DOES CONTAIN A PAIR. It's the fault of the data, not the code
+
+Asymptotic running time
+
+BIG O NOTATION
+n is the size of the input, of course (ex. items in array, rows in .txt, whatever)
+
+Idea 1:
+By using that student-suggested start-j-at-i+1 idea, the thing is made more efficient but is still O(n^2)
+0+1+2+...+(n-2)+(n-1) = (n-1)*n/2
+=(n^2)/2 - n/2
+
+Idea 2: O(nlogn)
+Let's SORT
+If we sort in O(nlogn) (which is the best possible sort efficiency)...
+we can simultaneously scan start-to-finish and finish-to-start and declare false if the sum gets too big? Missed bit of that explanation
+
+After asking Nishat...
+the array process itself is O(n) but the sort is what makes it O(nlogn)
+Sort it big to small (or reverse, whatever. But in this example big to small)
+Start traversing the array. Skip any values larger than the sum all by themselves.
+When you find one smaller than the sum, look at the value at the end of the array.
+If that value adds to the left value to make something smaller than the sum, look at the next-rightmost value. Repeat this step until:
+	a) the left and right values add to GREATER than the sum. if this happens, move the left value along one.
+		note that you don't need to resume the right side from the very rightmost again. this is because a value that was too small when combined with an older, larger left value is going to still be too small when combined with a smaller left value. you can resume using the right value that just proved too big for the older, bigger left value, trying to add it to the next-largest right value.
+	b) they add to create the sum! Return true.
+but this is a worse solution than Idea 3 because the sort beforehand makes it O(nlogn)
+
+Idea 3: O(n)
+have a secondary array of booleans corresponding to the unsorted array
+say you find a 10. then put a true (1) at the index corresponding to 10
+and then check whether the secondary array has a 1 at index 225-10. if it does, return true!
+then if you find a 215 in the input array, you check at secondary array index 225-215==10 and find a 1 there and return true.
+and then use that to print the pair if desired.
+this needs extra memory (storing the secondary array)
+but only runs through the in array a number of times linearly proportional to the size of the in array, so it is O(n)
+

@@ -1,0 +1,141 @@
+Where's the pleasure in this?
+
+
+No brackets, no braces, no semicolons, no problem!
+
+foo = 0
+bar = "I am a string"
+
+# that is really how you declare stuff in Python! Wow!
+
+data do not have types... you CAN assign stuff to, from, and between variables of different types, but it will not always do what you want
+
+Instead of & | ! use and or not
+python speaks english
+
+to run a python file:
+
+python3 file.py
+
+Make it an executable:
+	add "#!/usr/bin/env" python3 to the FIRST line of the python 
+○
+Make it executable: 
+$ chmod +x <python_file.py>
+○
+Then you can run like you would a C executable
+■
+$ ./file.py
+
+like most interpretive languages, Python has a CLI
+(command line interface)
+
+allows you to type in commands manually, like in MATLAB
+to use it type $python3
+to exit, ctrl-D or exit()
+
+Indentation & Whitespace
+matters!
+No indentation means you're on the global level
+Always change your indentation level after a condition statement and a (:), for example
+
+
+ex.
+
+
+for i in range(10):
+
+	if i % 2 == 0:
+		print(i)
+	print("outside of if statement")
+def func_name():
+	x = 10
+
+print(x)
+
+func_name()
+
+def print_name():
+	print("Everything that is indented after the declaration is considered part of the function")
+
+#From the CLI, you can just call functions!
+ex.
+lab7.print_name()
+would call the print_name() function contained in lab7
+
+import argpase as ap
+then you can do
+parser = ap.ArgumentParser(description='Process some integers.')
+
+you also could
+
+from argparse import *
+to import everything
+
+or
+from argparse import that_one_thing_you_need
+
+(argparse is considered a LIBRARY)
+
+remember: if the module is not installed in ECS 348, you cannot use it!
+
+import sys
+
+print(sys.argv)
+#within the sys module, the argv list is kept, which is where input arguments are kept
+
+def get_user_input():
+	x = input("Enter a value: ")
+	print("Your value is", x)
+
+type(x) returns
+<class 'str'>
+
+argc = len(sys.argv)
+
+user_input = input("How old are you?")
+the result of input() is always a string, so you will have to cast to another type if required
+
+in the CLI, just entering the name of a value will spit the value itself
+
+x1, x2, x3, x4 = test_func(4,5,6)
+#is how to assign output of a function in the CLI
+
+Functions
+
+def my_function_name(arg1, arg2="default val"):
+	printf("I am in the function scope")
+	foo = arg2
+	bar = arg1
+	return foo, bar
+#the above function has no default value for arg1. So you need to give ti 1 or 2 arguments in this case. If you only give it 1 argument, arg2 will become "default val"
+
+x = text_function(10, y=99)
+//this sets 10 as an input and overrides an assignment of y to become 99 instead
+//You don't have to include the y= in this case but it could be helpful when trying to only reassign to the last of several parameters with default values
+
+//not sure about that last point. please confirm
+
+Lists in python...
+
+OneD = [1, "two", 3]
+Lists are ALWAYS passed by reference to functions.
+
+OneD[-1] = the last item in the list
+
+Python arrays don't mind being ragged.
+
+OneD[3:len(OneD] returns all values from the fourth to the last
+
+l.append([item]) will append something to the end of a list
+l1.append(l2) will combine the two lists into one
+
+A = [x for x in range(5)]
+#A=[0,1,2,3,4]
+#this is faster than a for loop for list creation
+
+Tuples are IMMUTABLE
+a = (1,2)
+#they are faster than lists
+#they can be used as dictionary keys
+

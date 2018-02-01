@@ -1,0 +1,35 @@
+% ps aux > temp1.txt
+% awk '{ print $1 }' temp1.txt > temp2.txt
+% sort temp2.txt > temp3.txt
+% uniq temp3.txt > temp4.txt
+% wc –l < temp4.txt > temp5.txt
+% cat temp5.txt
+
+uniq uniquely sorts results of running awk
+
+% ps aux | awk '{ print $1 }' | sort | uniq | wc –l
+
+understand all that! CHECK
+
+multiple commands can be sequenced. date; who; pwd
+
+(date; who; pwd) > logfile
+is different from
+
+ls -l *.txt will list all .txt files
+
+!! repeats last command
+
+!n repeats command number n
+
+!-n repeats command typed n commands ago
+
+env
+
+this will give you a lot of critical info about your machine: short for
+environmental variables
+
+echo $PATH
+this will tell you where you are
+
+~/.bash_profile sources231

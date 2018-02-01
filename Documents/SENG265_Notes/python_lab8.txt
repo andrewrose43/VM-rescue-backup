@@ -1,0 +1,70 @@
+DICTIONARIES
+
+are created using curly brackets
+	ex. A = {key1: value1, key2: value2}; A = {}
+	#analogous to Java hash maps
+
+
+now we can use key values...
+a["key2"]
+returns
+value2
+
+dictionaries are MUTABLE (modifiable) and UNORDERED
+
+d[10] = "asdf" #will make a new key called 10 which has a value of asdf
+
+dek d[key1] #will delete that mapping
+
+Looping through a dictionary:
+
+for k, v in d.items():
+	#in d.items()! Not in d!
+
+d.keys() gets you a list of the keys, but you'll want to cast the output as a list: list(d.keys())
+
+b = a.copy() #will COPY a list rather than making a second reference to it
+
+List Comprehensions are how you turn lists (or anything iterable) into another list
+
+A = [x for x in range(0,6) if x%2==0]
+
+matrix = [[1,2],[3,4]]; flattened = [n for row in matrix for n in row]
+
+_dict = {v:k for k, v in _dict.items()}
+recall that d.items() returns a list of (key, value) tuples
+
+Map takes the contents of a list and passes them to a function. applies the function to every item in the list
+
+ex. convert string characters to int
+
+one, two, three = map(int, ["1","2","3"])
+
+Filter is similar to map, except it extracts the element from the list that returns True from the passed function
+	also returns an iterable filter object unless you convert it to list
+requires you to define a boolean function to test all those inputs on
+
+lambda...
+
+lambdas are anonymous functions.
+	fr = filter(lambda x: x % 3 == 0, range(100))
+	lambdas exist only in local scope
+
+lambdas make for shorter and more readable code
+
+with open(filename, params) as fp: #<-- fp is our file handle
+	<do stuff if file opens successfully>
+<file auto-closes>
+
+#'rt' means read as text. unlike 'r', 'rt' interprets and obeys special characters
+
+data = fp.read()
+readlines() returns a list, each element of the list being a line from the file
+
+To sort a dictionary...
+d = {k:v for k, v in zip(["a", "b", "c", "d"], [4,6,9,-1])}
+sorted(d) will sort by key
+
+for k, v in sorted(d.items(), key = lambda t: t[1]):
+
+

@@ -1,0 +1,104 @@
+PYTHON II
+
+import sys
+
+def sum(a,b);
+	print("sum is: ", a+b)
+	return (a+b)
+
+def main():
+	sum(2,3)
+	print("I'm inside the main.")
+
+if __name__=="__main__":
+	main()
+
+~~~~
+
+binding a variable in Python means setting a name to hold a reference to some object
+
+Python determines the type of the reference automatically based on the data object assigned to it
+
+x, y = 2, 3
+
+see slides' list of reserved (key) words
+
+both tuples and lists are sets of ordered items
+lists use square brackets. tuples use parentheses.
+
+the difference:
+lists are mutable!
+tuples are immutable!
+
+you can append to a list. you cannot append to a tuple.
+both can have mixed data types.
+
+positive index: count from left, starting with 0
+negative index: count from right, starting with 1
+
+Here, we're going to return a copy of the container with a subset of the original members. Start coping at the first index, and stop copying BEFORE the second index!
+t = (23, 'abc, 4.56, (2,3), 'def')
+t[1:4] will return ('abc, 4.56, (2,3)
+
+t[:2] returns a copy of t that ranges from the first item to just before item 2
+
+t[2:] starts at index 2 and goes to the end of the container
+
+To make a COPY of the entire sequence, you can use [:]
+li[:]
+
+note the distinction:
+list2 = list1 #2 names refer to the same reference
+list2 = list1[:] #two independent copies. two difference references/memory locations.
+
+The in operator tests whether a value is inside a container
+
+t = [1,2,4,5]
+3 in t returns false
+2 in t returns true
+For strings, it tests for CONTINUOUS, UNSCRAMBLED substrings
+
+The * Operator
+produces a NEW tuple, list, or string that "repeats" the original content
+
+To modify a tuple, you have to make a FRESH tuple and assign its reference to a previously used name.
+
+This is okay, since it's a list:
+
+li = ['abc', 23, 4.34, 23]
+li[1] = 45
+li.append('a')
+li.insert(2,'i') will insert 'i' at index 2 and the stuff that was at indices 2 on are shoved over to make room
+
+li.extend([9,8,7]) will lengthen li by three bysticking those three things at the end
+
+lists are slower and more flexible than tuples
+
+li.sort()
+li.reverse()
+li.sort(some_func) sorts in place using user-defined comparison
+
+What happens when you type x = 3
+
+1. int 3 is created and stored in memory
+2. a name x is made
+3. a reference to the memory location storing the 3 is assigned to the name x
+
+Incrementing x:
+x=x+1
+
+1. reference of name x is looked up
+2. value @ referene is retreived
+3. the 3+1 is stored in a new location that x now points to
+3. the old value 3 is garbage-collected if nothing refers to it
+
+x=3
+y=x
+y=4
+print(x) prints 3 now. y is made to point to something new upon assignment.
+
+DICTIONARIES
+
+slide 53: user and pswd are keys to bozo and 1234
+
+d = {'user':'bozo', 'pswd':1234}

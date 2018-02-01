@@ -1,0 +1,81 @@
+#include getline or something. getline "does not work" but there is some kind of fix!
+
+Some Bug Avoidance Strategies
+-use a high-level language
+	-strong type-checking at compile time,
+	-memory management
+	-runtime checking of pointers, array indexes, etc. C does not do all that. High-level languages are friendly.
+
+In C, you can cast the output of something from a char to int, etc.
+C is considered less strongly typed than Java. Java doesn't allow all that casting.
+
+A strongly-typed language will give a compile-time error if you try to assign one data type to a different data type.
+
+Think before you code!
+	-write out and debug the specifications
+	-plan the architecture
+	-design the data structures
+	-develop pseudocode for the algorithms
+	-prove the correctness of the algorithms
+
+More Bug Avoidance Strategies
+
+Validation: every subrountine should validate its inputs (unless there is a clear proof that the inputs will always be valid)
+Assertions: insert assertions to verify that pointers are non-null and array indexes are in range (unless guaranteed by the programming language)
+Reuse stuff
+Check results. Library functions often return codes to indicate special results.
+KISS. Avoid complicated logic. Better to be a bit less efficient than to cause bugs
+	-ex. checking that malloc worked. Make a function to do that rather than writing out a block of code every time you call malloc
+Watch out for gotchas, like .equals vs == vs =
+
+Include test methods in classes (or test functions in modules)
+
+A successful test case breaks the code! The goal of a tester is to break the code!
+
+Get other people to look at your code.
+
+We can try inserting assertions! A S S E R T I O N S
+at strategic points
+
+The Heisenbug - disappears when you try to demonstrate it
+this is evidence of the new instance of the executable possibly pointing to different places in memory.
+
+Sometimes we need to observe the bug in a watcher program
+like gdb
+eclipse
+jdb for Java
+IDLE for Python
+insight is a GUI front-end for gdb
+DDD (Data Display Debugger) is a GUI front-end for gdb/dbx/jdb/...
+
+step takes a step
+next takes a step or executes an entire method/function call
+print [varname] //prints the variable
+where
+up
+//look at those above two
+list main
+list [funcname]
+list 22
+//lists the code around that line?
+//look up again
+watch sum //watches for accesses to a variable, breaks when its value is changed
+
+recall: must compile with -g to use gdb
+you can just command "run" in gdb to run the whole damn thing
+break point [linenumber] sets a breakpoint at that line.
+then use "run" to run to the breakpoint
+
+(gdb) print *$4
+//will print the thing at the address that was dealt with in gdb command 4
+
+watching a variable is great! It can show you exactly when everything changes!
+
+tokenize into a node's string variable.
+The one array we use should use dynamic memory!
+
+first param of getline si a pointer
+second is address of a sizet or int which holds the size of the line being written to
+third is filename
+
+returns the number of chars that it just put at the pointer

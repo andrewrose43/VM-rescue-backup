@@ -1,0 +1,42 @@
+To obtain the address of a variable, use &
+To use the thing at an address, put * in front of the address
+
+MEMORY MODEL, high to low
+
+unmapped
+stack (extends downward) - this is where everything required by a function is put.
+
+heap (extends upward) - this is dynamic memory, where malloc does its dirty business
+bss: uninitialized program-scope (global or static) variables or those initialized to 0
+data: initialized program-scope variables
+text: machine code (Executable) plus string table; read-only
+
+&my_var is the address of my_var
+*my_ptr is the thing at memory location my_ptr
+
+we need pointers in order to pass by reference.
+
+swap (&x, &y);
+
+...
+
+swap(int *x, int *y){
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+calling just swap(x,y) on a swap that took ints, not ints' locations, would perform a swap inside function scope and would not actually change the values of the ints where they were originally stored in memory
+
+using asterisks to make pointers is referred to as DEREFERENCING
+
+int grades[10];
+//address of the fifth element of grades:
+&grades[4]
+
+cursor = &buffer[0];
+cursor = buffer;
+//these two lines have the same effect!
+An array's name, unmarked, stands in for the ADDRESS of the first item in the array!
+
+

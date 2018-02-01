@@ -1,0 +1,35 @@
+QUOTES
+
+A backslash is what you use to quote a single character as text without exploiting any of its superpowers. It is strong.
+
+echo i can haz cheezburger\?
+in that example the backslash actually does nothing! because echo never does anything but spew plain ol' text I guess
+
+unless you had a bunch of files matching the pattern 'cheezburger' as I have so graciously set up for you, future andrew
+
+echo This could be \
+a very \
+long line\!
+//see, it even works on enters\!
+
+Enclosing characters in single quotes (') preserves the literal value of each character within the quotes. A single quote may not occur between single quotes, even when preceded by a backslash. These are referred to as 'STRONG' quotes.
+
+Enclosing characters in double quotes (") preserves the literal value of all characters within the quotes, with the exception of $, `, \, and, when history expansion is enabled, !. The characters $ and ` retain their special meaning within double quotes (see Shell Expansions). The backslash retains its special meaning only when followed by one of the following characters: $, `, ", \, or newline. Within double quotes, backslashes that are followed by one of these characters are removed. Backslashes preceding characters without a special meaning are left unmodified. A double quote may be quoted within double quotes by preceding it with a backslash. If enabled, history expansion will be performed unless an ! appearing in double quotes is escaped using a backslash. The backslash preceding the ! is not removed. These are referred to as "WEAK" quotes.
+
+A command placed between backticks is executed and replaced by the output of the command before anything else happends in the multifaceted command you just barked at your computer. It's kinda a pipelining thing. Backticks could, for example, be useful for tacking the output of a command on after the output of an earlier command.
+
+For example, this
+
+MYVAR=sometext
+echo "double quotes gives you $MYVAR"
+echo 'single quotes gives you $MYVAR'
+
+will give this:
+
+double quotes gives you sometext
+single quotes gives you $MYVAR
+
+
+
+
+

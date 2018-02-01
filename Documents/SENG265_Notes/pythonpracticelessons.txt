@@ -1,0 +1,27 @@
+def main(): this prevents the main's contents from being executed if the script is imported as a module
+
+Interesting: separating parts of print statements with commas automatically inserts spaces between them, but doing so with pluses does not add spaces. Both work!
+
+yes, an int of any nonzero value evaluates to true cleanly
+
+You can just print a list like so:
+print new_list
+
+for val in i: #notice that you don't put parens around your for loops!
+
+Strings are lists!
+for example...
+
+string = "example"
+for c in string:
+	print "one letter: " + c
+
+will print:
+
+one letter: e
+one letter: x
+one letter: a
+...
+
+
+True and False need to be capitalized like so!

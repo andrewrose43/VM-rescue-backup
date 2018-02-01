@@ -1,0 +1,103 @@
+KAHOOT
+
+which python3
+will tell you where python is installed on your computer
+
+
+X = 22
+def func():
+	X = 33
+fun()
+print(X)
+
+#the above will print 22 due to function scope
+
+
+X = 99
+def f1():
+	X = 88
+	def f2():
+		print(X)
+	f2()
+f1()
+
+#the above will print 88
+
+
+Scope Rules
+LEGB: local enclosing global built-in
+is the order in which locations are searched for definitions of variables
+
+If you want to use the global version of a variable...
+use
+global x
+
+see slide 131
+
+see slide 132 for nested function example
+here, E applies: the variable does not exist locally, so Python looks in the enclosing function
+
+Shebang...
+
+which --python3 tells you the path to python3
+then copy that address
+not sure how that worked...
+
+IMPORTING AND MODULES
+useful when wanting to reuse classes and functions
+import somefile
+or
+from somefile import *
+or
+from somefile import className
+
+need to download latest version of python slides (nov 16)
+contains an example function that makes the fibonacci sequence
+
+import fibo
+fibo.f1(1000) #run first function, input 1000
+fibo.f2(100) #run second function, input 100
+fibo.__name__ #returns 'fibo'
+
+could also import it like this:
+
+from fibo import f1, f2
+from fibo import *
+
+from somefile import classname
+
+Lambda notation...
+good for when you only need a function to run 1 or 2 times
+
+sum = lambda x, y: x+y
+sum(3,4)
+#returns 7
+
+or...
+def applier(q,x):
+	return q(x)
+applier(lambda z: z * 4, 7)
+
+the first arg given to applier() is an unnamed FUNCTION.
+you just passed a FUNCTION as input, you badass.
+
+SEE SLIDE 139  DIFFICULT EXAMPLE
+
+def make_incrementor(n): return lambda x: x+n
+f = make_incrementor(2)
+g = make_incrementor(6)
+print f(42), g(42)
+# prints 44 48
+print make_incrementor(22)(33)
+# prints 55
+
+r = map(func, seq)
+Map applies func to all elements in sequence seq
+
+map always outputs a weird useless object that you have to run list(weird_useless_obj) on in order to turn into a list
+
+asst 3 notes
+can't make assumptions about the name of the file
+CAN make assumptions about the data within. same columns/headers/structure
+don't worry about colons
+when you run te script, pipe it into said and then stream it to output	

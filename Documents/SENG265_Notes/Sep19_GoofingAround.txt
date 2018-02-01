@@ -1,0 +1,22 @@
+Okay, so...
+
+a few helpful hints!
+
+1. Bringing a job to the foreground and then typing ^C will kill the job and restore focus to the terminal!
+
+firefox & will run firefox in the background
+
+[cp or mv] -t ~/dir1/dir2/destination file1 file2 file3
+^^will [copy or move] three files to the destination folder
+
+evince file.pdf
+^^is how you open a pdf. add a & at the end so as not to cut off the terminal
+
+in order to paste into vim,
+1. get in insert mode
+2. middleclick or Ctrl-Shift-V
+
+> will take from a command and write to a file!
+Do not use | to write a command's output to a file!
+
+| are pipes. Pipes are for routing the standard output of one command into the standard input of another command. Pipes help us avoid the use of temporary files by producing an assembly line!

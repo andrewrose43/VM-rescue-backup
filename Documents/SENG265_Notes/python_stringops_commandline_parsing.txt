@@ -1,0 +1,152 @@
+join turns a list of strings into one mashed-together string.
+<separator_string>.join(<some_list>)
+
+No, those single quotes that appear around the joined string aren't real. They just show up in the echo generated when the new string is made.
+
+str(anything at all) will convert that thing into a string
+"Hello " + str(2)
+'Hello 2'
+
+"hello".upper()
+'HELLO'
+
+use <string>.strip() to strip off final newlines from lines read from files!
+
+print('Course unit: {0}; Number{1}'.format('SENG', '265'))
+outputs
+Course unit: SENG; Number 265
+#note that the 0 and 1 there were not strictly necessary - those numbers allow you to call the arguments in any order you like and to repeat them, but in this case they were in order anyway, and thus the curly braces could easily have been empty.
+
+If you like, you can refer to your arguments by name instead.
+
+'Coordinates: {lat}, {long}'.format(lat='37.24N',long='-115.81W')
+outputs
+'Coordinates: 37.24N, -115.81W'
+
+type spec for arguments is on slide 100
+
+COMMAND LINE ARGUMENTS
+
+the primitive way to work with command line arguments:
+
+
+import sys
+
+def main():
+	if len(sys.argv) == 1: #sys.argv is the list of arguments
+		print ("No arguments")
+	else:
+		print ("First argument is", sys.argv[1])
+
+if __name__ == "__main__":
+	main()
+
+
+but that is the dumb and primitive way.
+
+
+we have ARGPARSE!
+
+import argparse
+parser = argparse.ArgumentParser(description = 'Process some integers.')
+The ArgumentParser object will hold all the information necessary to parse the command line into Python data types.
+the description is not mandatory
+in fact it is easier to read what this does without being bamboozled by the description
+parser = argparse.ArgumentParser()
+#that is how you instantiate a parser
+
+The add_argument() method tells the ArgumentParser how to take the strings on the command line and turn them into objects This information is stored and uxed when parse_args() is called.
+
+For example...
+
+parser.add_argument('integers', type=int, nargs='+', ...help = 'an integer for the accumulator)
+Later, calling parse_args() will return an object with an attribute integers and which will be a list of one or more ints.
+
+so, integers is the name of the argument slot
+int is the type to be supplied there
+not sure what is going on in the nargs slot, since the slide 104 example does not deal with any nargs
+help is how the argument is described when you call help on the function
+
+see ~/seng265/pythonpractice/prog.py for an example with my added comments
+You can just say python3 prog.py --help
+to ANY python code(that has args?). the --help functionality is baked in
+
+Reading from CSV files
+
+see mywc.py
+
+
+import argparse
+
+parser = argparse.ArgumentParser(description = 'Process some integers.')
+
+The ArgumentParser object will hold all the information necessary to parse the command line into Python data types
+
+ex.
+
+parser.add_argument('integers', typeint, nargs='+', ... help = 'an integer for the accumulator')
+
+Later, calling parse_args() will return an object with an attribute... see slides
+
+Example Program
+
+import argparse
+parser = argparse.ArgumentParser()
+parse.add_argument("echo")
+args = parser.parse_args()
+print(args.echo)
+
+And running the code:
+
+this requires you to enter echo
+echo is the NAME of an internal variable whose value is supplied by the user
+
+Slide 108
+** means "to the power of"
+Won't work on strings. Can only be run on numbers... which Python knows to interpret as numbers when they are input.
+
+Optional Arguments
+
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--verbosity", help="increase output verbosity")
+
+Slide 110
+typing prog.py does nothing
+you can provide this program with the --help option to be shown how stuff works.
+the help="increase output verbosity" thing just tells python what to provide the user with about the --verbosity flag when they ask for help
+slide 111?
+
+
+Slide 112
+
+This is how you store whether or not a flag was entered.
+parser.add_argument)"-v", "--verbose", action="store_true", help="increase output verbosity")
+
+then, later:
+
+if args.verbose:
+	print("the square of {} equals {}".format(args.square, answer))
+else:
+	print(answer)
+
+slide 113 is overwhelming
+
+Reading from a csv file
+
+import csv
+def csv_reader(file_obj):
+	reader = csv.reader(file_obj)
+	for row in reader:
+		print(" ".join(row))
+
+if __name__ == "__main__":
+	csv_path = "TB_data_dictionary_2014-02-26.csv"
+	with open(csv_path, "fb") as f_obj:
+		csv_reader(f_obj)
+
+#you could easily run input into the csv_path variable
+
+Use exact wording of user-input questions for assignment!
+
+
